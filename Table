@@ -1,0 +1,241 @@
+script_key = "" --/ put ur key inside ""
+
+flood = {
+    ["Misc"]        = { ["Version"]          = "v1.0" },
+    ["Universal"]   = { ["Checks"]           = { ["Enabled"] = true } },
+    
+    ["SilentAim"]   = {
+        ["Enabled"]     = true,              ["Toggle"]      = "T",
+        ["Field"]       = "Box",             ["Mode"]        = "Automatic",
+        ["Point"]       = "Nearest Point",   ["Scale"]       = 0.15,
+        ["Type"]        = "Advanced",        ["Parts"]       = { "Head" },
+        
+        ["Prediction"] = {
+            ["Enabled"]     = false,         ["X"]           = 0.135,
+            ["Y"]           = 0.135,         ["Automated"]   = false,
+            ["Stabilize"]   = 4.8,
+            ["YStabilize"]  = {
+                ["Enabled"] = false,         ["Value"]       = 2
+            }
+        }
+    },
+    
+    ["AimAssist"] = {
+        ["Enabled"]     = false,             ["Toggle"]      = "X",
+        ["Sticky"]      = true,              ["Point"]       = "Nearest Point",
+        ["Scale"]       = 0.2,               ["Type"]        = "Basic",
+        ["Parts"]       = { "Head" },        ["Easing"]      = "Elastic",
+        
+        ["Smoothing"] = {
+            ["Enabled"]          = true,     ["Smoothness"]       = 0.084,
+            ["AirSmoothing"]     = 0.084
+        },
+        
+        ["Prediction"] = {
+            ["Enabled"] = false,             ["X"]       = 0.15,
+            ["Y"]       = 0.15
+        }
+    },
+
+    ["GunMods"] = {
+        ["Gun CoolDown"] = {
+            ["Enabled"] = false,
+            ["Weapon"] = {
+                ["[Double-Barrel SG]"] = 1,  ["[Revolver]"]         = 1
+            }
+        },
+        
+        ["Client Redirection"] = {
+            ["Enabled"] = false
+        },
+        
+        ["Spread"] = {
+            ["Enabled"] = true,
+            ["Weapon"] = {
+                ["[Double-Barrel SG]"] = 0.25, ["[TacticalShotgun]"]  = 0.25,
+                ["[Shotgun]"]          = 0.20,
+            },
+            ["Randomizer"] = {
+                ["Enabled"] = false,    ["Value"]   = math.random(0.1, 0.2)
+            }
+        },
+        
+        ["Gun Delay"] = {
+            ["Enabled"] = false,
+            ["Weapon"] = {
+                ["[Double-Barrel SG]"] = 0.005, ["[Revolver]"]         = 0.003
+            }
+        },
+        
+        ["Double Tap"] = {
+            ["Enabled"] = false,        ["Toggle"]  = "Y",
+            ["Weapon"]  = { "[Revolver]", "[Silencer]" }
+        },
+        
+        ["Util"] = {
+            ["Enabled"] = false,
+        }
+    },
+
+    ["Miscc"] = {
+        ["Velocity"] = {
+            ["Enabled"] = true,         ["Value"] = 150
+        },
+        ["AntiFling"] = { 
+            ["Enabled"] = true 
+        },
+        ["WalkSpeeed"] = {
+            ["Enabled"] = true,         ["Toggle"] = "V",
+            ["Control"] = false,        ["Value"] = 1,
+        },
+        ["InfJumps"] = { 
+            ["Enabled"] = true 
+        }
+    },
+
+    ["FOVs"] = {
+        ["AimAssistFOV"] = {
+            ["Size"] = 100,             ["Color"] = Color3.fromRGB(0, 10, 0),
+            ["Visible"] = false,        ["Transparency"] = 0.3,
+            ["Filled"] = false,         ["Thickness"] = 1
+        },
+        ["SilentAimFOV"] = {
+            ["Size"] = 50,              ["Color"] = Color3.fromRGB(26, 79, 10),
+            ["Visible"] = false,        ["Transparency"] = 0.3,
+            ["Filled"] = false,         ["Thickness"] = 1
+        },
+        ["BoxFOV"] = {
+            ["Visible"] = false,        ["Width"] = 5,
+            ["Height"] = 6,             ["Sync"] = false
+        }        
+    },
+
+    ["Checks"] = {
+        ["Forcefield"] = true,          ["Visible"]    = true,
+        ["Knocked"]    = true,          ["Grabbed"]    = true,        
+        ["Alive"]      = true,          ["Wall"]       = true,
+        ["Tool"]       = true 
+    },
+    
+    ["TriggerBot"] = {
+        ["Enabled"]     = true,         ["Delay"]       = 0.01,
+        ["WallCheck"]   = true,
+
+        ["Keybind"] = {
+            ["Enabled"] = true,         ["Key"]     = Enum.KeyCode.T,
+            ["Hold"]    = false
+        },
+
+        ["MouseButton"] = {
+            ["Enabled"] = false,        ["Button"]  = Enum.UserInputType.MouseButton2,
+            ["Hold"]    = true
+        },
+
+        ["Anti"] = {
+            ["Knife"] = true,           ["Food"]  = true
+        }
+    },
+
+    ["Kill Aura"] = {
+        ["Enabled"]             = false, ["KeyBind"]             = Enum.KeyCode.X,
+        ["ClosestToCrosshair"]  = true,  ["DeathCheck"]          = true
+    },
+
+    ["HitboxExpander"] = {
+        ["Enabled"]     = false,        ["Visualize"]   = false,
+        ["Color"]       = Color3.fromRGB(200, 160, 255), ["outline"] = Color3.fromRGB(90, 0, 120),
+        ["Transparency"]= 0.6,
+
+        ["Size"] = {
+            ["X"] = 3,                  ["Y"] = 3,      ["Z"] = 3
+        },
+
+        ["Cframe"] = {
+            ["Enabled"]     = false,    ["Toggle"]      = "V",
+            ["SpeedValue"]  = 1
+        }
+    },
+
+    ["Box ESP"] = {
+        ["Enabled"]   = false,          ["Type"]      = "Full",
+        ["Color"]     = Color3.fromRGB(75, 0, 130),   ["Thickness"] = 2,
+
+        ["Outline"] = {
+            ["Enabled"]   = false,      ["Color"]     = Color3.fromRGB(0, 0, 139),
+            ["Thickness"] = 1
+        },
+
+        ["Filled"] = {
+            ["Enabled"]  = false,
+            ["Gradient"] = {
+                ["Enabled"]      = false, ["StartColor"]   = Color3.fromRGB(75, 0, 130),
+                ["EndColor"]     = Color3.fromRGB(0, 0, 139), ["Transparency"] = 0.08
+            }
+        }
+    },
+
+    ["Text ESP"] = {
+        ["Enabled"] = true,
+
+        ["Name"] = {
+            ["Enabled"]   = false,      ["TeamCheck"] = false,
+            ["Color"]     = Color3.fromRGB(147, 112, 219), ["Outline"] = true
+        },
+
+        ["Distance"] = {
+            ["Enabled"]   = false,      ["Color"]     = Color3.fromRGB(173, 216, 230),
+            ["Outline"]   = false
+        },
+
+        ["Tool"] = {
+            ["Enabled"] = false,        ["Color"]   = Color3.fromRGB(216, 191, 216),
+            ["Outline"] = false
+        }
+    },
+
+    ["Health Bar"] = {
+        ["Enabled"]       = false,      ["ShowOutline"]   = false,
+        ["OutlineColor"]  = Color3.fromRGB(0, 0, 100),    ["Lerp"] = false,
+
+        ["Colors"] = {
+            ["Color1"] = Color3.fromRGB(70, 130, 180),    ["Color2"] = Color3.fromRGB(100, 149, 237),
+            ["Color3"] = Color3.fromRGB(138, 43, 226)
+        },
+
+        ["Glow"] = {
+            ["Enabled"]      = false,   ["Color"]        = Color3.fromRGB(70, 130, 180),
+            ["Transparency"] = 0.3
+        },
+
+        ["Background"] = {
+            ["Color"]        = Color3.fromRGB(25, 25, 112), ["Transparency"] = 0.4
+        }
+    },
+
+    ["Armor Bar"] = {
+        ["Enabled"]       = false,      ["ShowOutline"]   = false,
+        ["OutlineColor"]  = Color3.fromRGB(75, 0, 100),   ["Lerp"] = false,
+
+        ["Colors"] = {
+            ["Color1"] = Color3.fromRGB(106, 90, 205),    ["Color2"] = Color3.fromRGB(123, 104, 238),
+            ["Color3"] = Color3.fromRGB(186, 85, 211)
+        },
+
+        ["Glow"] = {
+            ["Enabled"]      = false,   ["Color"]        = Color3.fromRGB(147, 112, 219),
+            ["Transparency"] = 0.3
+        },
+
+        ["Background"] = {
+            ["Color"]        = Color3.fromRGB(25, 25, 112), ["Transparency"] = 0.4
+        }
+    },
+
+    ["Bars"] = {
+        ["Background"] = {
+            ["Color"]        = Color3.fromRGB(25, 25, 112), ["Transparency"] = 0.4
+        }
+    }
+}
+
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/bd95cdf06e1f3b939d93ed78151f30ff.lua"))()
