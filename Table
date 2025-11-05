@@ -5,35 +5,51 @@ flood = {
     ["Universal"]   = { ["Checks"]           = { ["Enabled"] = true } },
     
     ["SilentAim"]   = {
-        ["Enabled"]     = true,              ["Toggle"]      = "T",
+        ["Enabled"]     = false,             ["Toggle"]      = "P",
         ["Field"]       = "Box",             ["Mode"]        = "Automatic",
-        ["Point"]       = "Nearest Point",   ["Scale"]       = 0.15,
+        ["Point"]       = "Nearest Point",   ["Scale"]       = 0,
         ["Type"]        = "Advanced",        ["Parts"]       = { "Head" },
         
         ["Prediction"] = {
             ["Enabled"]     = false,         ["X"]           = 0.135,
             ["Y"]           = 0.135,         ["Automated"]   = false,
-            ["Stabilize"]   = 4.8,
+            ["Stabilize"]   = 8,
             ["YStabilize"]  = {
                 ["Enabled"] = false,         ["Value"]       = 2
             }
         }
-    },
+    }, 
     
+    ['Anti Curve'] = {
+        ['Enabled'] = true,
+        ['Angular Curve'] = 5,
+        ['Mode'] = "3D", 
+    },
+
     ["AimAssist"] = {
-        ["Enabled"]     = false,             ["Toggle"]      = "X",
-        ["Sticky"]      = true,              ["Point"]       = "Nearest Point",
-        ["Scale"]       = 0.2,               ["Type"]        = "Basic",
-        ["Parts"]       = { "Head" },        ["Easing"]      = "Elastic",
-        
-        ["Smoothing"] = {
-            ["Enabled"]          = true,     ["Smoothness"]       = 0.084,
-            ["AirSmoothing"]     = 0.084
+        ["Enabled"]     = false,             ["Sticky"]      = false,
+        ["Point"]       = "Nearest Point",   ["Scale"]       = 1,
+        ["Type"]        = "Basic",           ["Parts"]       = { "Head" },
+        ["Easing"]      = "Elastic",
+
+        ["MouseKeyBind"] = {
+            ["Enabled"]     = false,          ["MouseButton"] = Enum.UserInputType.MouseButton2,
+            ["Toggle"]      = false,         ["Hold"]        = false
         },
-        
+
+        ["KeyboardBind"] = {
+            ["Enabled"]     = false,          ["Key"]         = Enum.KeyCode.X,
+            ["Toggle"]      = false,          ["Hold"]        = false
+        },
+
+        ["Smoothing"] = {
+            ["Enabled"]     = false,          ["Smoothness"]  = 0,
+            ["AirSmoothing"] = 0
+        },
+
         ["Prediction"] = {
-            ["Enabled"] = false,             ["X"]       = 0.15,
-            ["Y"]       = 0.15
+            ["Enabled"]     = false,         ["X"]           = 0.15,
+            ["Y"]           = 0.15
         }
     },
 
@@ -41,7 +57,7 @@ flood = {
         ["Gun CoolDown"] = {
             ["Enabled"] = false,
             ["Weapon"] = {
-                ["[Double-Barrel SG]"] = 1,  ["[Revolver]"]         = 1
+                ["[Double-Barrel SG]"] = 0,  ["[Revolver]"]         = 0
             }
         },
         
@@ -50,10 +66,10 @@ flood = {
         },
         
         ["Spread"] = {
-            ["Enabled"] = true,
+            ["Enabled"] = false,
             ["Weapon"] = {
-                ["[Double-Barrel SG]"] = 0.25, ["[TacticalShotgun]"]  = 0.25,
-                ["[Shotgun]"]          = 0.20,
+                ["[Double-Barrel SG]"] = 0, ["[TacticalShotgun]"]  = 0,
+                ["[Shotgun]"]          = 0,
             },
             ["Randomizer"] = {
                 ["Enabled"] = false,    ["Value"]   = math.random(0.1, 0.2)
@@ -63,12 +79,12 @@ flood = {
         ["Gun Delay"] = {
             ["Enabled"] = false,
             ["Weapon"] = {
-                ["[Double-Barrel SG]"] = 0.005, ["[Revolver]"]         = 0.003
+                ["[Double-Barrel SG]"] = 0, ["[Revolver]"]         = 0
             }
         },
         
         ["Double Tap"] = {
-            ["Enabled"] = false,        ["Toggle"]  = "Y",
+            ["Enabled"] = false,        ["Toggle"]  = "M",
             ["Weapon"]  = { "[Revolver]", "[Silencer]" }
         },
         
@@ -79,13 +95,13 @@ flood = {
 
     ["Miscc"] = {
         ["Velocity"] = {
-            ["Enabled"] = true,         ["Value"] = 150
+            ["Enabled"] = false,       ["Value"] = 150
         },
         ["AntiFling"] = { 
-            ["Enabled"] = true 
+            ["Enabled"] = false 
         },
         ["WalkSpeeed"] = {
-            ["Enabled"] = true,         ["Toggle"] = "V",
+            ["Enabled"] = false,         ["Toggle"] = "J",
             ["Control"] = false,        ["Value"] = 1,
         },
         ["InfJumps"] = { 
@@ -95,59 +111,60 @@ flood = {
 
     ["FOVs"] = {
         ["AimAssistFOV"] = {
-            ["Size"] = 100,             ["Color"] = Color3.fromRGB(0, 10, 0),
-            ["Visible"] = false,        ["Transparency"] = 0.3,
+            ["Size"] = 100,             ["Color"] = Color3.fromRGB(0, 100, 200),  -- Light blue
+            ["Visible"] = false,         ["Transparency"] = 0.3,
             ["Filled"] = false,         ["Thickness"] = 1
         },
         ["SilentAimFOV"] = {
-            ["Size"] = 50,              ["Color"] = Color3.fromRGB(26, 79, 10),
-            ["Visible"] = false,        ["Transparency"] = 0.3,
+            ["Size"] = 50,              ["Color"] = Color3.fromRGB(0, 50, 150),   -- Medium blue
+            ["Visible"] = false,         ["Transparency"] = 0.3,
             ["Filled"] = false,         ["Thickness"] = 1
         },
         ["BoxFOV"] = {
-            ["Visible"] = false,        ["Width"] = 5,
-            ["Height"] = 6,             ["Sync"] = false
+            ["Visible"] = true,        ["Width"] = 2.5,
+            ["Height"] = 4,             ["Sync"] = true
         }        
     },
 
     ["Checks"] = {
-        ["Forcefield"] = true,          ["Visible"]    = true,
-        ["Knocked"]    = true,          ["Grabbed"]    = true,        
-        ["Alive"]      = true,          ["Wall"]       = true,
-        ["Tool"]       = true 
+        ["Forcefield"] = false,          ["Visible"]    = false,
+        ["Knocked"]    = false,          ["Grabbed"]    = false,        
+        ["Alive"]      = false,          ["Wall"]       = false,
+        ["Tool"]       = false 
     },
     
     ["TriggerBot"] = {
-        ["Enabled"]     = true,         ["Delay"]       = 0.01,
-        ["WallCheck"]   = true,
+        ["Enabled"]     = false,         ["Delay"]       = 0.01,
+        ["WallCheck"]   = false,
 
         ["Keybind"] = {
-            ["Enabled"] = true,         ["Key"]     = Enum.KeyCode.T,
+            ["Enabled"] = false,         ["Key"]     = Enum.KeyCode.T,
             ["Hold"]    = false
         },
 
         ["MouseButton"] = {
             ["Enabled"] = false,        ["Button"]  = Enum.UserInputType.MouseButton2,
-            ["Hold"]    = true
+            ["Hold"]    = false
         },
 
         ["Anti"] = {
-            ["Knife"] = true,           ["Food"]  = true
+            ["Knife"] = false,           ["Food"]  = false
         }
     },
 
     ["Kill Aura"] = {
         ["Enabled"]             = false, ["KeyBind"]             = Enum.KeyCode.X,
-        ["ClosestToCrosshair"]  = true,  ["DeathCheck"]          = true
+        ["ClosestToCrosshair"]  = false,  ["DeathCheck"]          = true
     },
 
     ["HitboxExpander"] = {
         ["Enabled"]     = false,        ["Visualize"]   = false,
-        ["Color"]       = Color3.fromRGB(200, 160, 255), ["outline"] = Color3.fromRGB(90, 0, 120),
+        ["Color"]       = Color3.fromRGB(100, 149, 237), 
+        ["outline"]     = Color3.fromRGB(0, 0, 139),    
         ["Transparency"]= 0.6,
 
         ["Size"] = {
-            ["X"] = 3,                  ["Y"] = 3,      ["Z"] = 3
+            ["X"] = 0,                  ["Y"] = 0,      ["Z"] = 0
         },
 
         ["Cframe"] = {
@@ -158,37 +175,41 @@ flood = {
 
     ["Box ESP"] = {
         ["Enabled"]   = false,          ["Type"]      = "Full",
-        ["Color"]     = Color3.fromRGB(75, 0, 130),   ["Thickness"] = 2,
+        ["Color"]     = Color3.fromRGB(70, 130, 180),  
+        ["Thickness"] = 2,
 
         ["Outline"] = {
-            ["Enabled"]   = false,      ["Color"]     = Color3.fromRGB(0, 0, 139),
+            ["Enabled"]   = false,      ["Color"]     = Color3.fromRGB(0, 0, 139), 
             ["Thickness"] = 1
         },
 
         ["Filled"] = {
             ["Enabled"]  = false,
             ["Gradient"] = {
-                ["Enabled"]      = false, ["StartColor"]   = Color3.fromRGB(75, 0, 130),
-                ["EndColor"]     = Color3.fromRGB(0, 0, 139), ["Transparency"] = 0.08
+                ["Enabled"]      = false, 
+                ["StartColor"]   = Color3.fromRGB(100, 149, 237),  
+                ["EndColor"]     = Color3.fromRGB(0, 0, 139),      
+                ["Transparency"] = 0.08
             }
         }
     },
 
     ["Text ESP"] = {
-        ["Enabled"] = true,
+        ["Enabled"] = false,
 
         ["Name"] = {
             ["Enabled"]   = false,      ["TeamCheck"] = false,
-            ["Color"]     = Color3.fromRGB(147, 112, 219), ["Outline"] = true
+            ["Color"]     = Color3.fromRGB(173, 216, 230), 
+            ["Outline"]   = false
         },
 
         ["Distance"] = {
-            ["Enabled"]   = false,      ["Color"]     = Color3.fromRGB(173, 216, 230),
+            ["Enabled"]   = false,      ["Color"]     = Color3.fromRGB(135, 206, 250), 
             ["Outline"]   = false
         },
 
         ["Tool"] = {
-            ["Enabled"] = false,        ["Color"]   = Color3.fromRGB(216, 191, 216),
+            ["Enabled"] = false,        ["Color"]   = Color3.fromRGB(176, 224, 230), 
             ["Outline"] = false
         }
     },
@@ -198,44 +219,48 @@ flood = {
         ["OutlineColor"]  = Color3.fromRGB(0, 0, 100),    ["Lerp"] = false,
 
         ["Colors"] = {
-            ["Color1"] = Color3.fromRGB(70, 130, 180),    ["Color2"] = Color3.fromRGB(100, 149, 237),
-            ["Color3"] = Color3.fromRGB(138, 43, 226)
+            ["Color1"] = Color3.fromRGB(220, 20, 60),    
+            ["Color2"] = Color3.fromRGB(255, 165, 0),     
+            ["Color3"] = Color3.fromRGB(50, 205, 50)     
         },
 
         ["Glow"] = {
-            ["Enabled"]      = false,   ["Color"]        = Color3.fromRGB(70, 130, 180),
+            ["Enabled"]      = false,   ["Color"]        = Color3.fromRGB(70, 130, 180), 
             ["Transparency"] = 0.3
         },
 
         ["Background"] = {
-            ["Color"]        = Color3.fromRGB(25, 25, 112), ["Transparency"] = 0.4
+            ["Color"]        = Color3.fromRGB(25, 25, 112), 
+            ["Transparency"] = 0.4
         }
     },
 
     ["Armor Bar"] = {
         ["Enabled"]       = false,      ["ShowOutline"]   = false,
-        ["OutlineColor"]  = Color3.fromRGB(75, 0, 100),   ["Lerp"] = false,
+        ["OutlineColor"]  = Color3.fromRGB(0, 0, 100),   ["Lerp"] = false,
 
         ["Colors"] = {
-            ["Color1"] = Color3.fromRGB(106, 90, 205),    ["Color2"] = Color3.fromRGB(123, 104, 238),
-            ["Color3"] = Color3.fromRGB(186, 85, 211)
+            ["Color1"] = Color3.fromRGB(70, 130, 180),   
+            ["Color2"] = Color3.fromRGB(100, 149, 237),  
+            ["Color3"] = Color3.fromRGB(135, 206, 250)   
         },
 
         ["Glow"] = {
-            ["Enabled"]      = false,   ["Color"]        = Color3.fromRGB(147, 112, 219),
+            ["Enabled"]      = false,   ["Color"]        = Color3.fromRGB(70, 130, 180), 
             ["Transparency"] = 0.3
         },
 
         ["Background"] = {
-            ["Color"]        = Color3.fromRGB(25, 25, 112), ["Transparency"] = 0.4
+            ["Color"]        = Color3.fromRGB(25, 25, 112), 
+            ["Transparency"] = 0.4
         }
     },
 
     ["Bars"] = {
         ["Background"] = {
-            ["Color"]        = Color3.fromRGB(25, 25, 112), ["Transparency"] = 0.4
+            ["Color"]        = Color3.fromRGB(25, 25, 112),  
+            ["Transparency"] = 0.4
         }
     }
 }
-
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/bd95cdf06e1f3b939d93ed78151f30ff.lua"))()
